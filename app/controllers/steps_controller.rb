@@ -20,6 +20,19 @@ class StepsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @step.update_attributes(params[:step])
+      flash[:notice] = "Step has been updated."
+      redirect_to [@task, @step]
+    else
+      flash[:alert] = "Step was not updated."
+      render :action => "edit"
+    end
+  end
+
   private
     def find_task
       @task = Task.find(params[:task_id])

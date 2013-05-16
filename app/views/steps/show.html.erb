@@ -1,4 +1,6 @@
 <div id="step">
   <h2><%= @step.number%>. <%= @step.summary %></h2>
   <%= simple_format(@step.description) %>
+  <%= link_to "Edit Step", [:edit, @task, @step] %>
+  <%= link_to "Back", @task %>
 </div>
