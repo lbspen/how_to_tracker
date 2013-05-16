@@ -47,7 +47,10 @@ class TasksController < ApplicationController
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
-        format.html { render action: "new" }
+        format.html do 
+          flash[:alert] = "Task was not created."
+          render action: "new" 
+        end
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -63,7 +66,10 @@ class TasksController < ApplicationController
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html do 
+          flash[:alert] = "Task was not updated."
+          render action: "edit" 
+        end
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -76,7 +82,10 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html do
+        flash[:notice] = "Task has been deleted."
+        redirect_to tasks_url 
+      end
       format.json { head :no_content }
     end
   end
