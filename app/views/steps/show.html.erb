@@ -2,5 +2,8 @@
   <h2><%= @step.number%>. <%= @step.summary %></h2>
   <%= simple_format(@step.description) %>
   <%= link_to "Edit Step", [:edit, @task, @step] %>
+  <%= link_to "Delete Step", [@task, @step], 
+      :method => :delete,
+      :confirm => "Are you sure?" %>
   <%= link_to "Back", @task %>
 </div>
