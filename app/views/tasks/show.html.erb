@@ -9,17 +9,18 @@
 </p>
 
 
-<%= link_to 'Edit Task', edit_task_path(@task) %> |
+<%= link_to 'Edit Task', edit_task_path(@task) %> 
 <%= link_to 'Delete Task', task_path(@task), 
   :method => :delete, 
   :confirm => 'Are you sure?' %>
 
-<ul id="steps">
-  <% @task.steps.each do |step| %>
-  <li>
-    <%= step.number %>. <%= link_to step.summary, [@task, step] %>
-  </li>
+<table id="steps">
+  <th>Steps</th>
+  <% @task.steps.sort_by{|step| step.number}.each do |step| %>
+  <tr>
+    <td><%= step.number %>. <%= link_to step.summary, [@task, step] %></td>
+  </tr>
   <% end %>
-</ul>
-<%= link_to "New Step", new_task_step_path(@task) %>
+</table>
+<%= link_to "New Step", new_task_step_path(@task) %> <br />
 <%= link_to 'Back', tasks_path %>

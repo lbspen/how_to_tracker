@@ -28,6 +28,14 @@ a {
     color: #74CC00;
 }
 
+.field {
+    margin-bottom: 10px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
 textarea {
     padding: 3px;
     margin-top: 5px;
@@ -165,3 +173,35 @@ menu, #ticket .state, .states {
 .comment, .new_comment {
     width: 75%;
 }
+
+table {
+    border: 1px solid #DFDFDF;
+    background-color: #F9F9F9;
+    width: 100%;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #333;
+    margin: 10px 0 10px 0;
+}
+
+table td, .table th {
+    border-top: 1px solid #DFDFDF;
+    color: #555;
+}
+
+table th {
+    text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+    text-align: left;
+    line-height: 1.3em;
+    font-size: 14px;
+}
+
+table td {
+    font-size: 12px;
+    padding: 4px 7px 2px;
+    vertical-align: top;
+}
+
+
+
